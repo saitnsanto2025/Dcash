@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Premium Waitlist</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:#f8f9fa;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  color:#2d3436;
+}
+
+.container{
+  width:100%;
+  max-width:760px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 14px 38px rgba(0,0,0,.09);
+  overflow:hidden;
+}
+
+.header{
+  text-align:center;
+  padding:34px 22px 28px;
+  border-bottom:1px solid #e9ecef;
+  background:radial-gradient(circle at top right, rgba(108,92,231,.15), transparent 35%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  height:55px;
+  object-fit:contain;
+}
+
+.pill{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.6px;
+  color:#6c5ce7;
+}
+
+.header h1{
+  font-size:26px;
+  font-weight:900;
+}
+
+.header p{
+  font-size:14px;
+  color:#636e72;
+}
+
+.content{padding:24px}
+
+.card{
+  border:1px solid #e9ecef;
+  border-radius:16px;
+  padding:20px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:14px;
+}
+
+.row.one{grid-template-columns:1fr;margin-top:0}
+
+label{
+  display:block;
+  font-weight:800;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.required{color:#e17055}
+
+input{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#f8f9fa;
+}
+
+input:focus{
+  background:#f1f3f4;
+  box-shadow:0 0 0 3px rgba(108,92,231,.12);
+}
+
+.actions{margin-top:18px}
+
+.btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:13px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.btn.primary{
+  background:#6c5ce7;
+  color:#fff;
+}
+
+.alert{
+  display:none;
+  margin-top:14px;
+  padding:13px;
+  border-radius:14px;
+  font-size:13px;
+  background:#fff1f2;
+  color:#9f1239;
+}
+
+.success-page{
+  display:none;
+  text-align:center;
+  padding:24px;
+}
+
+.check{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f3f1ff;
+  color:#6c5ce7;
+  font-size:28px;
+  font-weight:900;
+  margin:0 auto 14px;
+}
+
+.benefits{
+  margin-top:18px;
+  text-align:left;
+  border:1px solid #e9ecef;
+  border-radius:16px;
+  padding:16px;
+}
+
+.benefits h3{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.benefits div{
+  font-size:13px;
+  color:#636e72;
+  margin-bottom:6px;
+}
+
+@media(max-width:720px){
+  .row{grid-template-columns:1fr}
+}
+</style>
+
+<!-- ✅ Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXJSDJKE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MXJSDJKE0S');
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <img 
+      src="https://raw.githubusercontent.com/saitnsanto2025/logic/refs/heads/main/Logo-dark%20(1).png" 
+      class="logo"
+      alt="Logo"
+    >
+
+    <div class="pill">PREMIUM WAITLIST</div>
+
+    <h1>Join the Waitlist</h1>
+    <p>Get early access, priority onboarding and exclusive updates.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="card" id="formCard">
+      <form id="waitlistForm">
+
+        <div class="row one">
+          <div>
+            <label>Full Name <span class="required">*</span></label>
+            <input id="fullName" required placeholder="Enter your full name">
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Email <span class="required">*</span></label>
+            <input id="email" type="email" required placeholder="example@email.com">
+          </div>
+
+          <div>
+            <label>Phone Number <span class="required">*</span></label>
+            <input id="phone" required placeholder="+2547...">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary" id="submitBtn">
+            Join Waitlist
+          </button>
+        </div>
+
+        <div class="alert" id="errorBox"></div>
+
+      </form>
+    </div>
+
+    <div class="success-page" id="successPage">
+      <div class="check">✓</div>
+      <h2 id="successName"></h2>
+      <p>You have successfully joined the premium waitlist.</p>
+
+      <div class="benefits">
+        <h3>What You Get</h3>
+        <div>✅ Early access before public launch</div>
+        <div>✅ Priority onboarding support</div>
+        <div>✅ Guided account setup assistance</div>
+        <div>✅ Exclusive updates & offers</div>
+        <div>✅ Faster response from our team</div>
+      </div>
+
+      <p style="margin-top:16px;font-size:13px;color:#636e72;">
+        An agent will contact you shortly to help you set up your account successfully.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const WEBHOOK_URL = "https://dhrx9wkc.rpcld.co/webhook/ingia";
+
+const form = document.getElementById("waitlistForm");
+const submitBtn = document.getElementById("submitBtn");
+const errorBox = document.getElementById("errorBox");
+
+const formCard = document.getElementById("formCard");
+const successPage = document.getElementById("successPage");
+const successName = document.getElementById("successName");
+
+function showError(msg){
+  errorBox.textContent = msg;
+  errorBox.style.display = "block";
+}
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const fullName = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if(!fullName || !email || !phone){
+    showError("Please fill in all required fields.");
+    return;
+  }
+
+  submitBtn.innerText = "Submitting...";
+  submitBtn.disabled = true;
+
+  try{
+    const res = await fetch(WEBHOOK_URL,{
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body:JSON.stringify({
+        fullName,
+        email,
+        phone,
+        submittedAt: new Date().toISOString()
+      })
+    });
+
+    if(!res.ok){
+      showError("Submission failed. Try again.");
+      return;
+    }
+
+    formCard.style.display = "none";
+    successPage.style.display = "block";
+    successName.innerText = "Congratulations, " + fullName + "!";
+
+    // ✅ Conversion Tracking
+    gtag('event', 'waitlist_signup', {
+      event_category: 'engagement',
+      event_label: 'Premium Waitlist'
+    });
+
+  }catch(err){
+    showError("Network error. Check connection.");
+  }
+
+  submitBtn.innerText = "Join Waitlist";
+  submitBtn.disabled = false;
+});
+</script>
+
+</body>
+</html>
